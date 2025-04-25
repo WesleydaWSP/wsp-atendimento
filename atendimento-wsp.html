@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSP Imóveis - Lançamento Rio Preto</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .opcao {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        .opcao:hover {
+            background: #2980b9;
+        }
+        #resposta {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4fc;
+            border-radius: 5px;
+            display: none;
+        }
+        .whatsapp {
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .destaque {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WSP Imóveis - Lançamento Rio Preto</h1>
+        <p>Confira nossos lançamentos exclusivos e <span class="destaque">agende sua visita!</span></p>
+        
+        <button class="opcao" onclick="escolherOpcao(1)">
+            <strong>1. Casa - Olinda Sala (Pacaembu)</strong><br>
+            <small>Clique para ver detalhes e fotos</small>
+        </button>
+        
+        <button class="opcao" onclick="escolherOpcao(2)">
+            <strong>2. Apartamento - Pâdova (FAJ)</strong><br>
+            <small>Clique para ver detalhes e fotos</small>
+        </button>
+        
+        <div id="resposta">
+            <p id="mensagem"></p>
+            <a id="whatsappLink" class="whatsapp" href="#" target="_blank">
+                CHAMAR NO WHATSAPP ▶
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function escolherOpcao(opcao) {
+            const mensagens = {
+                1: "✨ <strong>Casa Olinda Sala no Pacaembu</strong> ✨<br><br>Ótima escolha! Esta casa oferece:<br>- 3 quartos<br>- Área de lazer completa<br>- Vagas para 2 carros<br><br>Um corretor especializado já vai te atender!",
+                2: "🏢 <strong>Apartamento Pâdova na FAJ</strong> 🏢<br><br>Excelente opção! Destaques:<br>- 2 suítes<br>- Varanda gourmet<br>- Portaria 24h<br><br>Prepare seu WhatsApp para o contato!"
+            };
+            
+            document.getElementById('mensagem').innerHTML = mensagens[opcao];
+            document.getElementById('whatsappLink').href = `https://wa.me/5517981643844?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20${opcao === 1 ? 'Casa Olinda Sala no Pacaembu' : 'Apartamento Pâdova na FAJ'}`;
+            document.getElementById('resposta').style.display = 'block';
+            
+            // Abre o PDF em nova aba
+            const pdfs = [
+                "https://drive.google.com/file/d/11di2wHZg2FwHX3Bb33UNljN7-87dEVTB/view?usp=sharing",
+                "https://drive.google.com/file/d/1VvPCAOKuS3E4T4URTBHliflg3AjU3sJN/view?usp=sharing"
+            ];
+            window.open(pdfs[opcao - 1], '_blank');
+        }
+    </script>
+</body>
+</html>
